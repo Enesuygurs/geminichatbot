@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Chat</title>
+   <link href="css/style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/emoji-mart@latest/css/emoji-mart.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <div class="toast-container"></div>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>
+                    Chats
+                    <button class="sidebar-toggle sidebar-close" onclick="toggleSidebar()" style="float: right;">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </h2>
+                <button class="new-chat-button" onclick="startNewChat()">
+                    <i class="fas fa-plus"></i> New Chat
+                </button>
+            </div>
+            <div class="conversations-list" id="conversationsList">
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="chat-header">
+                <button class="sidebar-toggle sidebar-open" onclick="toggleSidebar()" style="display: none;">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1><i class="fas fa-robot"></i> Gemini Chat</h1>
+                <div class="chat-controls">
+                    <button class="control-button header-button" onclick="clearChat()" title="Clear Chat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="control-button header-button" onclick="toggleTheme()" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div style="position: relative;">
+                        <button class="control-button header-button" onclick="toggleSettings()" title="Settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <div class="settings-menu" id="settingsMenu">
+                            <div class="settings-item" onclick="toggleNotifications()">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </div>
+                            <div class="settings-item" onclick="changeLanguage()">
+                                <i class="fas fa-globe"></i>
+                                <span>Language</span>
+                            </div>
+                            <div class="settings-item" onclick="toggleSound()">
+                                <i class="fas fa-volume-up"></i>
+                                <span>Sound Effects</span>
+                            </div>
+                            <div class="settings-item" onclick="exportChatHistory()">
+                                <i class="fas fa-file-export"></i>
+                                <span>Export History</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="chat-container"></div>
+            
+            <div class="typing-indicator">
+                <div class="typing-animation">
+                    Gemini is typing<span>.</span><span>.</span><span>.</span>
+                </div>
+            </div>
+
+            <div class="chat-footer">
+                <div class="input-container">
+               
+                    <div class="input-wrapper">
+                        <button class="control-button" id="voice-input" title="Voice Input">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <textarea
+                            id="message-input"
+                            placeholder="Type a message..."
+                            rows="1"
+                            onInput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px'"
+                        ></textarea>
+                        <div class="input-buttons">
+                            <div class="feature-buttons">
+                                <button class="feature-button" onclick="toggleAutoScroll()" id="autoScrollBtn" title="Auto-scroll">
+                                    <i class="fas fa-scroll"></i>
+                                </button>
+                                <button class="feature-button" onclick="translateLastMessage()" title="Translate">
+                                    <i class="fas fa-language"></i>
+                                </button>
+                                <button class="feature-button" onclick="readLastMessage()" title="Read Aloud">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                            <button class="control-button" onclick="toggleEmojiPicker()" title="Emoji">
+                                <i class="far fa-smile"></i>
+                            </button>
+                            <button class="control-button send-button" onclick="sendMessage()" title="Send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="emoji-picker" class="emoji-picker"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
