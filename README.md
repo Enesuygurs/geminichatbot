@@ -38,7 +38,7 @@ This project is an Gemini Chatbot website powered by the **Gemini API**. The web
 # Mobile
 ![localhost_3004_(iPhone 14 Pro Max) (1)](https://github.com/user-attachments/assets/77acca4b-9731-4a35-b6a9-9a87a4220dcf)
 
-#Messages - Code Block
+# Messages - Code Block
 ![localhost_3004_(iPhone 14 Pro Max) (2)](https://github.com/user-attachments/assets/adb5aae4-d544-4507-88a8-2ba3d3e4d66c)
 
 # Emoji Panel
