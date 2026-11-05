@@ -22,7 +22,7 @@ This project is an Gemini Chatbot website powered by the **Gemini API**. The web
 1. Clone the repository to your local machine. Use Git to clone the repository from GitHub.
 2. Once the repository is cloned, navigate into the project folder.
 3. Install the necessary dependencies using npm. This will install all the packages listed in the `package.json` file.
-4. Create a `.env` file in the root directory of the project and add your **Gemini API key**. Replace `your_api_key_here` with your actual API key.
+4. Copy `.env.example` to `.env` in the root directory of the project and add your **Gemini API key** in place of the placeholder. `.env` is ignored by Git, so your key stays on your machine.
 5. Start the application by running the provided command to launch the server.
 6. Once the server is running, open your browser and visit `http://localhost:XXXX` to access the site.
 
